@@ -1,8 +1,10 @@
 import React, { useRef, useEffect, useState } from "react";
 import mapboxgl from "mapbox-gl";
+// import.meta.env.VITE_TOKEN;
 
-mapboxgl.accessToken =
-  "pk.eyJ1IjoiZXhhbXBsZXMiLCJhIjoiY2p0MG01MXRqMW45cjQzb2R6b2ptc3J4MSJ9.zA2W0IkI0c6KaAhJfk9bWg";
+mapboxgl.accessToken = import.meta.env.VITE_TOKEN;
+// mapboxgl.accessToken =
+//   "pk.eyJ1IjoiZXhhbXBsZXMiLCJhIjoiY2p0MG01MXRqMW45cjQzb2R6b2ptc3J4MSJ9.zA2W0IkI0c6KaAhJfk9bWg";
 // "pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpejY4NXFhYTA2bTMyeW44ZG0ybXBkMHkifQ.gUGbDOPUN1v1fTs5SeOR4A";
 function Mapbox() {
   const mapContainer = useRef(null);
@@ -68,19 +70,12 @@ function Mapbox() {
         type: "circle",
         // type: "symbol",
         source: "earthquakes_1",
-        layout: {
-          // "icon-image": "custom-marker",
-          // // get the title name from the source's "title" property
-          // "text-field": ["get", "mag"],
-          // "text-font": ["Open Sans Semibold", "Arial Unicode MS Bold"],
-          // "text-offset": [0, 1.25],
-          // "text-anchor": "top",
-        },
+        layout: {},
         paint: {
           "circle-radius": 3,
-          "circle-stroke-width": 1,
-          "circle-color": "blue",
-          "circle-stroke-color": "white",
+          "circle-stroke-width": 0.1,
+          "circle-color": "#4D4DFF",
+          "circle-stroke-color": "whitesmoke",
         },
       });
       map.current.addLayer({
@@ -91,9 +86,9 @@ function Mapbox() {
         layout: {},
         paint: {
           "circle-radius": 3,
-          "circle-stroke-width": 1,
-          "circle-color": "green",
-          "circle-stroke-color": "white",
+          "circle-stroke-width": 0.3,
+          "circle-color": "#44D62C",
+          "circle-stroke-color": "whitesmoke",
         },
       });
       map.current.addLayer({
@@ -104,9 +99,9 @@ function Mapbox() {
         layout: {},
         paint: {
           "circle-radius": 3,
-          "circle-stroke-width": 1,
-          "circle-color": "#ced100",
-          "circle-stroke-color": "white",
+          "circle-stroke-width": 0.6,
+          "circle-color": "#E0E722",
+          "circle-stroke-color": "whitesmoke",
         },
       });
       map.current.addLayer({
@@ -118,8 +113,8 @@ function Mapbox() {
         paint: {
           "circle-radius": 6,
           "circle-stroke-width": 1,
-          "circle-color": "red",
-          "circle-stroke-color": "white",
+          "circle-color": "#D22730",
+          "circle-stroke-color": "whitesmoke",
         },
       });
     });
